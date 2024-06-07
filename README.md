@@ -1,4 +1,3 @@
-![thubnail](https://github.com/vtnguyen04/pcb/assets/64852371/7d47b11e-7c97-4d9f-a229-7f521bc1690f)
 Project Description: PCB Fault Detection
 Project Overview:
 
