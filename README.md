@@ -1,20 +1,24 @@
-# ![image](https://github.com/vtnguyen04/pcb/assets/64852371/6f4e63c5-71b2-42b4-995b-097518c489a7)
+![thubnail](https://github.com/vtnguyen04/pcb/assets/64852371/7d47b11e-7c97-4d9f-a229-7f521bc1690f)
 Project Description: PCB Fault Detection
 Project Overview:
 
 The "PCB Fault Detection" project employs image processing and machine learning technologies to automatically identify and classify faults on printed circuit boards (PCBs). The aim of the project is to enhance the quality and efficiency of PCB inspection processes in electronic manufacturing, reducing the need for manual inspection, thereby speeding up production and lowering costs.
+
 Types of Faults Detected:
 
     Break: Areas where the circuit trace has been interrupted or broken.
     Shortcut: Unintended connections between two or more circuit traces that should not be connected.
     Under etching: Incomplete etching process leaving unwanted parts of the metal layer.
     Over etching: Excessive etching that removes necessary parts of the circuit trace.
+![445380641_342489758621377_4969743518060766273_n](https://github.com/vtnguyen04/pcb/assets/64852371/a2dd336b-f367-4aca-8970-bb2ece0126c8)
 
 Technology and Tools:
 
     Image Processing: Utilizes algorithms to analyze images of PCBs and identify potential fault areas.
     Machine Learning and Computer Vision: Implements deep learning models to classify and pinpoint specific types of faults on the boards.
     Graphical User Interface (GUI): Provides an intuitive interface for users to interact with the application, including options for capturing images, loading data, and managing inspection results.
+![Uploading thubnail.png…](![mainApp](https://github.com/vtnguyen04/pcb/assets/64852371/38620e52-455e-4762-a35a-f82fbbdc8e1a)
+)
 
 Application Features:
 
