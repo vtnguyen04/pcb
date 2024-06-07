@@ -17,8 +17,8 @@ Technology and Tools:
     Image Processing: Utilizes algorithms to analyze images of PCBs and identify potential fault areas.
     Machine Learning and Computer Vision: Implements deep learning models to classify and pinpoint specific types of faults on the boards.
     Graphical User Interface (GUI): Provides an intuitive interface for users to interact with the application, including options for capturing images, loading data, and managing inspection results.
-![Uploading thubnail.png…](![mainApp](https://github.com/vtnguyen04/pcb/assets/64852371/38620e52-455e-4762-a35a-f82fbbdc8e1a)
-)
+
+![mainApp](https://github.com/vtnguyen04/pcb/assets/64852371/0579c3ef-59d6-4060-96cd-e4fbdd3a3304)
 
 Application Features:
 
