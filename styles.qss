@@ -1,21 +1,20 @@
 QWidget {
-    background-color: #2C3E50;  /* Xanh đen */
-    color: #ECF0F1;  /* Trắng nhạt */
+    background-color: #2b3a57;  /* Xanh dương tối */
+    color: #ECEFF1;  /* Trắng nhạt */
     font-family: 'Roboto';
     font-size: 14px;
 }
 
 QLabel {
-    color: #BDC3C7;  /* Xám nhạt */
+    color: #2b3a57;  /* Xám nhạt */
     font-size: 16px;
     font-weight: bold;  /* Chữ đậm */
-    
 }
 
 QPushButton {
-    background-color: #2980B9;  /* Xanh dương đậm */
+    background-color: #495A7C;  /* Xanh tím đậm */
     color: #FFFFFF;  /* Màu chữ trắng */
-    border: 1px solid #2980B9;
+    border: 1px solid #495A7C;
     border-radius: 10px;
     padding: 10px;
     font-size: 13px;
@@ -23,17 +22,17 @@ QPushButton {
 }
 
 QPushButton:hover {
-    background-color: #3498DB;  /* Xanh dương sáng hơn khi hover */
+    background-color: #6873A5;  /* Xanh tím sáng hơn khi hover */
 }
 
 QPushButton:pressed {
-    background-color: #1F618D;  /* Xanh dương đậm hơn khi nhấn */
+    background-color: #3B4868;  /* Xanh tím đậm hơn khi nhấn */
 }
 
 QLineEdit {
-    background-color: #34495E;  /* Xanh đen nhạt */
-    color: #ECF0F1;  /* Màu chữ trắng nhạt */
-    border: 1px solid #2980B9;
+    background-color: #3B4868;  /* Xanh đen nhạt */
+    color: #ECEFF1;  /* Màu chữ trắng nhạt */
+    border: 1px solid #495A7C;
     border-radius: 10px;
     padding: 5px;
     font-size: 14px;
@@ -41,32 +40,32 @@ QLineEdit {
 }
 
 QTreeWidget {
-    background-color: #34495E;  /* Xanh đen nhạt */
-    color: #ECF0F1;  /* Màu chữ trắng nhạt */
-    border: 1px solid #2980B9;
+    background-color: #3B4868;  /* Xanh đen nhạt */
+    color: #ECEFF1;  /* Màu chữ trắng nhạt */
+    border: 1px solid #495A7C;
     border-radius: 10px;
     padding: 5px;
     font-weight: bold;  /* Chữ đậm */
 }
 
 QHeaderView::section {
-    background-color: #1F618D;  /* Xanh dương đậm */
-    color: #ECF0F1;  /* Màu chữ trắng nhạt */
+    background-color: #495A7C;  /* Xanh tím đậm */
+    color: #ECEFF1;  /* Màu chữ trắng nhạt */
     padding: 5px;
-    border: 1px solid #2980B9;  /* Viền xanh dương đậm */
+    border: 1px solid #495A7C;  /* Viền xanh tím đậm */
     font-weight: bold;  /* Chữ đậm */
 }
 
 QHeaderView::section:horizontal {
     border-top: 0;
     border-left: 0;
-    border-right: 1px solid #2980B9;
-    border-bottom: 1px solid #2980B9;
+    border-right: 1px solid #495A7C;
+    border-bottom: 1px solid #495A7C;
 }
 
 QHeaderView::section:vertical {
-    border-top: 1px solid #2980B9;
+    border-top: 1px solid #495A7C;
     border-left: 0;
-    border-right: 1px solid #2980B9;
+    border-right: 1px solid #495A7C;
     border-bottom: 0;
 }
