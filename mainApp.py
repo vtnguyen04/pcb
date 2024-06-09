@@ -59,7 +59,7 @@ class App(QWidget):
     def __init__(self):
         super().__init__()
         self.title = 'PCB FAULT DETECTION App'
-        self.left, self.top, self.width, self.height = 100, 100, 1280, 720
+        self.left, self.top, self.width, self.height = 50, 50, 1600, 1000
         
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_frame)
@@ -101,7 +101,7 @@ class App(QWidget):
         self.video_label.setStyleSheet("border: 2px solid #7160F2;")
         self.video_label2 = QLabel(self)
         self.video_label2.setStyleSheet("border: 2px solid #7160F2;")
-        self.video_label2.setFixedSize(500, 400)  
+        self.video_label2.setFixedSize(600, 450)  
 
         self.data_tree = QTreeWidget(self)
         self.data_tree.setColumnCount(4)
@@ -148,7 +148,7 @@ class App(QWidget):
         splitter.addWidget(self.create_left_panel())
         splitter.addWidget(self.create_right_panel())
 
-        splitter.setSizes([300, 900])
+        splitter.setSizes([250, 900])
         main_layout.addWidget(splitter)
 
         self.setLayout(main_layout)
@@ -484,4 +484,5 @@ class App(QWidget):
             init_db()
             QMessageBox.information(self, "Success", "Database reset successfully.")
             self.data_tree.clear()
+
 
