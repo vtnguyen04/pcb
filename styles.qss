@@ -1,38 +1,41 @@
 QWidget {
-    background-color: #2b3a57;  /* Xanh dương tối */
-    color: #ECEFF1;  /* Trắng nhạt */
+    background-color: qlineargradient(
+        spread:pad, x1:0, y1:0, x2:1, y2:1,
+        stop:0 #e3f2fd, stop:0.5 #bbdefb, stop:1 #90caf9
+    );  /* Gradient xanh dương nhạt */
+    color: #333333;  /* Xám đậm */
     font-family: 'Roboto';
     font-size: 14px;
 }
 
 QLabel {
-    color: #2b3a57;  /* Xám nhạt */
+    color: #2b3a57;  /* Xanh dương tối */
     font-size: 16px;
     font-weight: bold;  /* Chữ đậm */
 }
 
 QPushButton {
-    background-color: #495A7C;  /* Xanh tím đậm */
+    background-color: #42a5f5;  /* Xanh dương sáng */
     color: #FFFFFF;  /* Màu chữ trắng */
-    border: 1px solid #495A7C;
+    border: 1px solid #42a5f5;
     border-radius: 10px;
     padding: 10px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;  /* Chữ đậm */
 }
 
 QPushButton:hover {
-    background-color: #6873A5;  /* Xanh tím sáng hơn khi hover */
+    background-color: #1e88e5;  /* Xanh dương đậm hơn khi hover */
 }
 
 QPushButton:pressed {
-    background-color: #3B4868;  /* Xanh tím đậm hơn khi nhấn */
+    background-color: #1565c0;  /* Xanh dương đậm hơn khi nhấn */
 }
 
 QLineEdit {
-    background-color: #3B4868;  /* Xanh đen nhạt */
-    color: #ECEFF1;  /* Màu chữ trắng nhạt */
-    border: 1px solid #495A7C;
+    background-color: #bbdefb;  /* Xanh nhạt */
+    color: #2b3a57;  /* Xanh dương tối */
+    border: 1px solid #90caf9;
     border-radius: 10px;
     padding: 5px;
     font-size: 14px;
@@ -40,32 +43,128 @@ QLineEdit {
 }
 
 QTreeWidget {
-    background-color: #3B4868;  /* Xanh đen nhạt */
-    color: #ECEFF1;  /* Màu chữ trắng nhạt */
-    border: 1px solid #495A7C;
+    background-color: #bbdefb;  /* Xanh nhạt */
+    color: #2b3a57;  /* Xanh dương tối */
+    border: 1px solid #90caf9;
     border-radius: 10px;
     padding: 5px;
     font-weight: bold;  /* Chữ đậm */
 }
 
 QHeaderView::section {
-    background-color: #495A7C;  /* Xanh tím đậm */
-    color: #ECEFF1;  /* Màu chữ trắng nhạt */
+    background-color: #42a5f5;  /* Xanh dương sáng */
+    color: #FFFFFF;  /* Màu chữ trắng */
     padding: 5px;
-    border: 1px solid #495A7C;  /* Viền xanh tím đậm */
+    border: 1px solid #42a5f5;  /* Viền xanh dương sáng */
     font-weight: bold;  /* Chữ đậm */
 }
 
 QHeaderView::section:horizontal {
     border-top: 0;
     border-left: 0;
-    border-right: 1px solid #495A7C;
-    border-bottom: 1px solid #495A7C;
+    border-right: 1px solid #42a5f5;
+    border-bottom: 1px solid #42a5f5;
 }
 
 QHeaderView::section:vertical {
-    border-top: 1px solid #495A7C;
+    border-top: 1px solid #42a5f5;
     border-left: 0;
-    border-right: 1px solid #495A7C;
+    border-right: 1px solid #42a5f5;
     border-bottom: 0;
+}
+
+/* Thêm các thành phần khác để làm phong phú thêm giao diện */
+
+QMenuBar {
+    background-color: qlineargradient(
+        spread:pad, x1:0, y1:0, x2:1, y2:1,
+        stop:0 #e3f2fd, stop:0.5 #bbdefb, stop:1 #90caf9
+    );  /* Gradient xanh dương nhạt */
+    color: #333333;  /* Xám đậm */
+}
+
+QMenuBar::item {
+    background-color: transparent;
+    color: #333333;  /* Xám đậm */
+}
+
+QMenuBar::item:selected {
+    background-color: #bbdefb;  /* Xanh nhạt */
+}
+
+QMenu {
+    background-color: #e3f2fd;  /* Xanh nhạt */
+    color: #2b3a57;  /* Xanh dương tối */
+    border: 1px solid #90caf9;
+}
+
+QMenu::item:selected {
+    background-color: #90caf9;  /* Xanh sáng */
+    color: #FFFFFF;  /* Màu chữ trắng */
+}
+
+QScrollBar:vertical {
+    background: #bbdefb;  /* Xanh nhạt */
+    width: 15px;
+}
+
+QScrollBar::handle:vertical {
+    background: #42a5f5;  /* Xanh dương sáng */
+    min-height: 20px;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    background: #bbdefb;  /* Xanh nhạt */
+    height: 20px;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}
+
+QTabBar::tab {
+    background: #bbdefb;  /* Xanh nhạt */
+    color: #2b3a57;  /* Xanh dương tối */
+    padding: 10px;
+    border: 1px solid #90caf9;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+QTabBar::tab:selected {
+    background: #42a5f5;  /* Xanh dương sáng */
+    color: #FFFFFF;  /* Màu chữ trắng */
+}
+
+QTabBar::tab:!selected {
+    margin-top: 2px; /* Đảm bảo các tab không được chọn không chồng lên tab được chọn */
+}
+
+QStatusBar {
+    background-color: #2b3a57;  /* Xanh dương tối */
+    color: #ECEFF1;  /* Trắng nhạt */
+}
+
+QToolBar {
+    background: qlineargradient(
+        spread:pad, x1:0, y1:0, x2:1, y2:1,
+        stop:0 #e3f2fd, stop:0.5 #bbdefb, stop:1 #90caf9
+    );  /* Gradient xanh dương nhạt */
+    border: 1px solid #90caf9;
+}
+
+QToolBar QToolButton {
+    background-color: #42a5f5;  /* Xanh dương sáng */
+    color: #FFFFFF;  /* Màu chữ trắng */
+    border: 1px solid #42a5f5;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+QToolBar QToolButton:hover {
+    background-color: #1e88e5;  /* Xanh dương đậm hơn khi hover */
+}
+
+QToolBar QToolButton:pressed {
+    background-color: #1565c0;  /* Xanh dương đậm hơn khi nhấn */
 }
