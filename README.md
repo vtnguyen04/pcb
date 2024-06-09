@@ -17,7 +17,8 @@ Technology and Tools:
     Machine Learning and Computer Vision: Implements deep learning models to classify and pinpoint specific types of faults on the boards.
     Graphical User Interface (GUI): Provides an intuitive interface for users to interact with the application, including options for capturing images, loading data, and managing inspection results.
 
-![mainApp](https://github.com/vtnguyen04/pcb/assets/64852371/0579c3ef-59d6-4060-96cd-e4fbdd3a3304)
+![image](https://github.com/vtnguyen04/pcb/assets/64852371/bf2fc58c-f6a0-4fac-95af-222b17dd7017)
+
 
 Application Features:
 
