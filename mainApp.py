@@ -1,16 +1,14 @@
-from PIL import Image
-from pypylon import pylon
-
-import sys
 import cv2
 import sqlite3
 from datetime import datetime
 from PyQt6.QtWidgets import (QApplication, QWidget, QLabel, QPushButton, QFrame,
                              QVBoxLayout, QHBoxLayout, QTreeWidget, QFileDialog,
-                             QTreeWidgetItem, QHeaderView, QLineEdit, QMessageBox, QSplitter, QMainWindow)
-from PyQt6.QtGui import QPixmap, QPainter, QColor, QFont, QFontMetrics, QPen, QIcon
+                             QTreeWidgetItem, QHeaderView, QLineEdit, QMessageBox, QSplitter, QMainWindow, QMenu, QMenuBar, QStatusBar)
+from PyQt6.QtGui import QPixmap, QPainter, QColor, QFont, QIcon, QImage, QAction
 from PyQt6.QtCore import QTimer, QSize, Qt
-
+from PIL import Image
+#from pypylon import pylon
+ 
 model = 'last.onnx'
 filename_classes = 'detection_classes.txt'
 
@@ -21,11 +19,25 @@ outNames = net.getUnconnectedOutLayersNames()
 
 mean = [0, 0, 0]
 
+# Hàm khởi tạo cơ sở dữ liệu
+def init_db():
+    conn = sqlite3.connect('Fault_detect.db')
+    cursor = conn.cursor()
+    cursor.execute('''CREATE TABLE IF NOT EXISTS objects
+                  (id INTEGER PRIMARY KEY, 
+                  Fault TEXT, 
+                  Confidence REAL,
+                  timestamp TEXT)''')
+    conn.commit()
+    conn.close()
+
+init_db()
+
 class WatermarkLabel(QLabel):
     def __init__(self, parent=None):
         super(WatermarkLabel, self).__init__(parent)
         self.camera_off = True
-        self.setFixedSize(500, 400)  
+        self.setFixedSize(600, 500)  
 
     def paintEvent(self, event):
         super(WatermarkLabel, self).paintEvent(event)
@@ -55,11 +67,12 @@ class WatermarkLabel(QLabel):
         self.update()  
 
 
-class App(QWidget):
+class App(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.title = 'PCB FAULT DETECTION App'
+        self.setWindowTitle('PCB Fault Detection App')
         self.left, self.top, self.width, self.height = 50, 50, 1600, 1000
+        self.setGeometry(self.left, self.top, self.width, self.height)
         
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_frame)
@@ -78,30 +91,33 @@ class App(QWidget):
         
         self.initUI()
         
-    
-    def create_button(self, text, icon, handler):
-        size = (124, 52)
-        button = QPushButton(text)
-        button.setIcon(QIcon(icon))
-        button.setIconSize(QSize(32, 32))
-        button.setFixedSize(*size)
-        button.clicked.connect(handler)
-        return button
-    
-    def add_widgets_to_layout(self, layout, widgets):
-        for widget in widgets:
-            layout.addWidget(widget)
-
     def initUI(self):
-        self.setWindowTitle(self.title)
-        self.setGeometry(self.left, self.top, self.width, self.height)
+        self.statusBar = QStatusBar()
+        self.setStatusBar(self.statusBar)
 
-        # Set video
+        self.menuBar = self.menuBar()
+        fileMenu = self.menuBar.addMenu('File')
+        editMenu = self.menuBar.addMenu('Edit')
+        viewMenu = self.menuBar.addMenu('View')
+        helpMenu = self.menuBar.addMenu('Help')
+
+        exitAction = QAction(QIcon('icons/exit.png'), 'Exit', self)
+        exitAction.setShortcut('Ctrl+Q')
+        exitAction.triggered.connect(self.close)
+        fileMenu.addAction(exitAction)
+        
+        helpAction = QAction('User Guide', self)
+        helpAction.triggered.connect(self.show_help)
+        helpMenu.addAction(helpAction)
+
+        self.main_widget = QWidget()
+        self.setCentralWidget(self.main_widget)
+
         self.video_label = WatermarkLabel()
         self.video_label.setStyleSheet("border: 2px solid #7160F2;")
         self.video_label2 = QLabel(self)
         self.video_label2.setStyleSheet("border: 2px solid #7160F2;")
-        self.video_label2.setFixedSize(600, 450)  
+        self.video_label2.setFixedSize(600, 500)  
 
         self.data_tree = QTreeWidget(self)
         self.data_tree.setColumnCount(4)
@@ -127,7 +143,7 @@ class App(QWidget):
         self.nmsThreshold_input = QLineEdit(self)
         self.nmsThreshold_input.setPlaceholderText("Set nmsThreshold")
         self.nmsThreshold_input.setFixedSize(150, 30)
-        # Add to layout
+
         button_layout1 = QHBoxLayout()
         self.add_widgets_to_layout(button_layout1, [
             self.camera_button, self.capture_button, self.load_button, 
@@ -151,7 +167,20 @@ class App(QWidget):
         splitter.setSizes([250, 900])
         main_layout.addWidget(splitter)
 
-        self.setLayout(main_layout)
+        self.main_widget.setLayout(main_layout)
+
+    def create_button(self, text, icon, handler):
+        size = (124, 52)
+        button = QPushButton(text)
+        button.setIcon(QIcon(icon))
+        button.setIconSize(QSize(32, 32))
+        button.setFixedSize(*size)
+        button.clicked.connect(handler)
+        return button
+    
+    def add_widgets_to_layout(self, layout, widgets):
+        for widget in widgets:
+            layout.addWidget(widget)
 
     def create_left_panel(self):
         left_frame = QFrame()
@@ -201,18 +230,46 @@ class App(QWidget):
         log_widget = QWidget()
         log_widget.setLayout(log_layout)
         down_splitter.addWidget(log_widget)
-        splitter.addWidget(down_splitter)
-        return splitter
 
+        splitter.addWidget(down_splitter)
+        
+        return splitter
+    
     def populate_device_tree(self):
-        root = QTreeWidgetItem(self.device_tree, ["Integrated Camera"])
-        usb = QTreeWidgetItem(self.device_tree, ["USB"])
-        QTreeWidgetItem(root, [""])
-        QTreeWidgetItem(usb, ["Basler Camera"])
+        root = QTreeWidgetItem(self.device_tree, ["Devices"])
+        QTreeWidgetItem(root, ["Basler camera"])
 
     def populate_category_tree(self):
-        Size_constraint = QTreeWidgetItem(self.category_tree, ["Size constraint"])
-        Ignored_error = QTreeWidgetItem(self.category_tree, ["Ignored error"])
+        root = QTreeWidgetItem(self.category_tree, ["Category"])
+        QTreeWidgetItem(root, ["break Fault"])
+        QTreeWidgetItem(root, ["over-etching Fault"])
+    
+    def show_help(self):
+        help_text = (
+            "User Guide for PCB Fault Detection App\n"
+            "\n"
+            "* Buttons:\n"
+            "- Capture: Capture an image from the camera.\n"
+            "- Load Data: Load fault data from the database.\n"
+            "- Stop Application: Stop the application.\n"
+            "- Start Timed Capture: Start capturing images at the set time interval.\n"
+            "- Stop Capture: Stop timed image capturing.\n"
+            "- Camera on: Turn the camera on or off.\n"
+            "- Reset Database: Reset the database, deleting all saved entries.\n"
+            "\n"
+            "*Input Fields:\n"
+            "- Set delay in seconds: Set the image capture interval (in seconds).\n"
+            "- Set confThreshold: Set the confidence threshold for fault detection.\n"
+            "- Set nmsThreshold: Set the Non-Maximum Suppression threshold.\n"
+            "\n"
+            "*Other Components:\n"
+            "- Devices: Display available devices.\n"
+            "- Category: Display types of detectable faults.\n"
+            "- Log Messages: Display application log messages.\n"
+            "- Video Feed: Display video from the camera.\n"
+            "- Detection Data: Display fault detection data.\n"
+        )
+        QMessageBox.information(self, "User Guide", help_text, QMessageBox.StandardButton.Ok)
 
     
     def identify_fault(self, frame, outs,
@@ -484,5 +541,3 @@ class App(QWidget):
             init_db()
             QMessageBox.information(self, "Success", "Database reset successfully.")
             self.data_tree.clear()
-
-
