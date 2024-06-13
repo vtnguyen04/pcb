@@ -9,7 +9,7 @@ from PyQt6.QtCore import QTimer, QSize, Qt
 from PIL import Image
 #from pypylon import pylon
  
-model = 'last.onnx'
+model = 'best.onnx'
 filename_classes = 'detection_classes.txt'
 
 net = cv2.dnn.readNet(model)
