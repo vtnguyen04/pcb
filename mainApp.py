@@ -84,6 +84,9 @@ class App(QMainWindow):
         self.load = False
         self.is_image_loaded = False
         self.classes = None
+        if filename_classes:
+            with open(filename_classes, 'rt') as f:
+                self.classes = f.read().rstrip('\n').split('\n')
 
         self.mywidth, self.myheight = 640, 640
         self.scale = 0.00392
