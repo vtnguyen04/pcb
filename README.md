@@ -29,3 +29,5 @@ Application Features:
     Configuration Options: Allows users to set parameters such as confidence thresholds for detection accuracy.
 
 This project represents a significant step forward in automating the quality control process in PCB manufacturing, offering a high-tech solution to ensure product reliability and industry compliance.
+
+source code for detecting model: https://www.kaggle.com/code/vothanhnguyen/pcb-fautdetection
