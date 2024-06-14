@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['break', 'over-etching']
+
+roboflow:
+  workspace: vo-thanh-nguyen
+  project: pcb-fault-detection-tjboy
+  version: 21
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/vo-thanh-nguyen/pcb-fault-detection-tjboy/dataset/21
