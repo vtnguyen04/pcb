@@ -1,7 +1,5 @@
-from PyQt6.QtWidgets import QApplication
-
-from interface import StartupApp
-from mainApp import App
+from interface import *
+from mainApp import *
 import sys
 
 def main():
