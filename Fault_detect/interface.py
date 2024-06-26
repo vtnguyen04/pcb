@@ -2,11 +2,9 @@ import sys
 import cv2
 import sqlite3
 from datetime import datetime
-from PyQt6.QtWidgets import (QApplication, QWidget, QLabel, QPushButton, QFrame,
-                             QVBoxLayout, QHBoxLayout, QFileDialog, QTreeWidget,
-                             QTreeWidgetItem, QHeaderView, QLineEdit, QMessageBox, QSplitter)
-from PyQt6.QtGui import QImage, QPixmap, QIcon, QPainter, QColor, QFont
-from PyQt6.QtCore import QTimer, QSize, Qt
+from PyQt6.QtWidgets import *
+from PyQt6.QtGui import *
+from PyQt6.QtCore import *
 
 class StartupApp(QWidget):
 
@@ -16,7 +14,7 @@ class StartupApp(QWidget):
         self.text_lines = [
             "Major - Robotics and Artificial Intelligence",
             "Project Title - Detecting faults on PCB circuits",
-            "Instructor - Ts. Nguyễn Văn Thái",
+            "Lecturer - Ts. Nguyễn Văn Thái",
             "Võ Thành Nguyễn - Student ID: 22134008",
             "Phạm Văn Thịnh - Student ID: 22134014", 
             "Phạm Ngọc Phúc - Student ID: 22134010"
@@ -36,31 +34,6 @@ class StartupApp(QWidget):
     def initUI(self):
         self.setWindowTitle("Welcome to PCB FAULT DETECTION App")
         self.setGeometry(100, 0, 800, 1000)
-        self.setStyleSheet("""
-            QWidget {
-                background-color: qlineargradient(
-                    spread:pad, x1:0, y1:0, x2:1, y2:1,
-                    stop:0 #e3f2fd, stop:0.5 #bbdefb, stop:1 #90caf9
-                );
-            }
-            QLabel {
-                color: #333333;
-                font-size: 23px;
-                font-weight: bold;
-            }
-            QPushButton {
-                background-color: #42a5f5;
-                color: white;
-                padding: 10px;
-                border-radius: 10px;
-                font-size: 18px;
-                font-weight: bold;
-            }
-            QPushButton:hover {
-                background-color: #1e88e5;
-            }
-        """)
-
         self.layout = QVBoxLayout()
         self.setLayout(self.layout)
 
@@ -117,7 +90,7 @@ class StartupApp(QWidget):
     def startScrolling(self):
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.updateText)
-        self.timer.start(2000)  # Change text every 2000 ms (2 seconds)
+        self.timer.start(1500)  # Change text every 2000 ms (2 seconds)
 
     def updateText(self):
         if self.current_text_index < len(self.text_lines):
