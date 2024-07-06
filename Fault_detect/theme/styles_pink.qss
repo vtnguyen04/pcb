@@ -1,0 +1,209 @@
+QWidget {
+    background-color: qlineargradient(
+        spread:pad, x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffe6f0, stop:0.5 #ffd0e0, stop:1 #ffc0d0
+    );  /* Gradient hồng nhạt */
+    color: #333333;  /* Xám đậm */
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    border-radius: 20px;
+}
+
+QLabel {
+    color: #333333;  /* Xám đậm */
+    font-size: 14px;
+    font-weight: bold;  /* Chữ đậm */
+}
+
+QPushButton {
+    background-color: #ffc0d0;  /* Hồng nhạt */
+    color: #333333;  /* Xám đậm */
+    border: 2px solid #ffc0d0;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: bold;  /* Chữ đậm */
+}
+
+QPushButton:hover {
+    background-color: #ffb0c0;  /* Hồng nhạt hơn khi hover */
+}
+
+QPushButton:pressed {
+    background-color: #ffa0b0;  /* Hồng đậm hơn khi nhấn */
+}
+
+QLineEdit {
+    background-color: #ffd0e0;  /* Hồng rất nhạt */
+    color: #333333;  /* Xám đậm */
+    border: 1px solid #ffb0c0;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;  /* Chữ đậm */
+}
+
+QMenuBar {
+    background-color: qlineargradient(
+        spread:pad, x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ffe6f0, stop:0.5 #ffd0e0, stop:1 #ffc0d0
+    );  /* Gradient hồng nhạt */
+    color: #333333;  /* Xám đậm */
+}
+
+QMenuBar::item {
+    background-color: transparent;
+    color: #333333;  /* Xám đậm */
+}
+
+QMenuBar::item:selected {
+    background-color: #ffd0e0;  /* Hồng rất nhạt */
+}
+
+QMenu {
+    background-color: #ffe6f0;  /* Hồng nhạt */
+    color: #333333;  /* Xám đậm */
+    border: 1px solid #ffb0c0;
+}
+
+QMenu::item:selected {
+    background-color: #ffb0c0;  /* Hồng nhạt */
+    color: #333333;  /* Xám đậm */
+}
+
+QComboBox {
+    background-color: #ffd0e0;  /* Hồng rất nhạt */
+    color: #333333;  /* Xám đậm */
+    border: 2px solid #ffb0c0;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;  /* Chữ đậm */
+    padding-left: 10px;
+}
+
+QComboBox:hover, QComboBox::drop-down:hover {
+    background-color: #ffc0d0;  /* Hồng nhạt khi hover */
+    border: 2px solid #ffa0b0;
+}
+
+QComboBox QAbstractItemView {
+    color: #333333;  /* Xám đậm */
+    background-color: #ffd0e0;  /* Hồng rất nhạt */
+    padding: 10px;
+    selection-background-color: #ffb0c0;
+}
+
+QHeaderView::section {
+    background-color: #ffd0e0;  /* Hồng rất nhạt */
+    color: #333333;  /* Xám đậm */
+    padding: 5px;
+    border: 1px solid #ffb0c0;  /* Viền hồng nhạt */
+    font-weight: bold;  /* Chữ đậm */
+}
+
+QHeaderView::section:horizontal {
+    border: 1px solid #ffb0c0;
+    background-color: #ffd0e0;
+    padding: 3px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    color: #333333;  /* Xám đậm */
+    border-top: 0;
+    border-left: 0;
+    border-right: 1px solid #ffb0c0;
+    border-bottom: 1px solid #ffb0c0;
+}
+
+QHeaderView::section:vertical {
+    border-top: 1px solid #ffb0c0;
+    border-left: 0;
+    border-right: 1px solid #ffb0c0;
+    border-bottom: 0;
+    border: 1px solid #ffb0c0;
+}
+
+QTreeWidget {
+    background-color: #ffd0e0;  /* Hồng rất nhạt */
+    color: #333333;  /* Xám đậm */
+    border: 1px solid #ffb0c0;
+    border-radius: 20px;
+    padding: 10px;
+    font-weight: bold;  /* Chữ đậm */
+}
+
+QTreeWidget::item {
+    background-color: #ffe6f0;  /* Hồng nhạt */
+    color: #333333;  /* Xám đậm */
+    border: 1px solid #ffc0d0;  /* Viền hồng nhạt */
+    border-radius: 10px;
+    padding: 5px;
+}
+
+QTreeWidget::item:selected {
+    background-color: #ffb0c0;  /* Hồng nhạt */
+    color: #333333;  /* Xám đậm */
+}
+
+QTreeWidget::branch {
+    background-color: #ffd0e0;  /* Hồng rất nhạt */
+    color: #333333;  /* Xám đậm */
+}
+
+QTreeWidget::branch:has-children:!has-siblings:closed,
+QTreeWidget::branch:closed:has-children:has-siblings {
+    image: url(:/tree-closed.png);  /* Đường dẫn đến icon khi đóng */
+}
+
+QTreeWidget::branch:open:has-children:!has-siblings,
+QTreeWidget::branch:open:has-children:has-siblings {
+    image: url(:/tree-open.png);  /* Đường dẫn đến icon khi mở */
+}
+
+QStackedWidget {
+    background-color: #ffd0e0;  /* Hồng rất nhạt */
+    color: #333333;  /* Xám đậm */
+    border: 1px solid #ffb0c0;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+QStackedWidget > QWidget {
+    background-color: #ffe6f0;  /* Hồng nhạt */
+    color: #333333;  /* Xám đậm */
+    border-radius: 20px;
+}
+
+QListWidget {
+    background-color: #ffd0e0;  /* Hồng rất nhạt */
+    color: #333333;  /* Xám đậm */
+    border: 1px solid #ffb0c0;
+    border-radius: 20px;
+    padding: 10px;
+    font-weight: bold;  /* Chữ đậm */
+}
+
+QListWidget::item {
+    background-color: #ffe6f0;  /* Hồng nhạt */
+    color: #333333;  /* Xám đậm */
+    border: 1px solid #ffc0d0;  /* Viền hồng nhạt */
+    border-radius: 10px;
+    padding: 5px;
+}
+
+QListWidget::item:selected {
+    background-color: #ffb0c0;  /* Hồng nhạt */
+    color: #333333;  /* Xám đậm */
+}
+
+/* Thêm phần ranh giới giữa các splitter */
+QSplitter::handle {
+    background-color: #ffb0c0;  /* Màu hồng nhạt */
+    border: 1px solid #ff8090;  /* Viền hồng đậm hơn */
+    width: 1px;  /* Độ rộng ranh giới */
+    height: 1px;  /* Độ cao ranh giới */
+}
+
+QSplitter::handle:hover {
+    background-color: #ff8090;  /* Màu hồng đậm hơn khi hover */
+}
