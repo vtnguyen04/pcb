@@ -32,4 +32,4 @@ Configuration Options: Allows users to set parameters such as confidence thresho
 
 This project represents a significant step forward in automating the quality control process in PCB manufacturing, offering a high-tech solution to ensure product reliability and industry compliance.
 
-source code for detecting model: https://www.kaggle.com/code/vothanhnguyen/pcb-fautdetection
+source code for detecting model: [https://www.kaggle.com/code/vothanhnguyen/pcb-fautdetection](https://www.kaggle.com/code/vothanhnguyen/notebookb7ced305be)
