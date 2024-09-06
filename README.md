@@ -10,7 +10,7 @@ Shortcut: Unintended connections between two or more circuit traces that should 
 Under etching: Incomplete etching process leaving unwanted parts of the metal layer.
 Over etching: Excessive etching that removes necessary parts of the circuit trace.
 
-  ![445380641_342489758621377_4969743518060766273_n](https://github.com/vtnguyen04/pcb/assets/64852371/a2dd336b-f367-4aca-8970-bb2ece0126c8)
+    ![445380641_342489758621377_4969743518060766273_n](https://github.com/vtnguyen04/pcb/assets/64852371/a2dd336b-f367-4aca-8970-bb2ece0126c8)
 
 ## Technology and Tools:
 
@@ -22,7 +22,7 @@ Graphical User Interface (GUI): Provides an intuitive interface for users to int
 
 
 
-Application Features:
+## Application Features:
 
 Image Capture: Users can capture images of PCBs directly through integrated or external cameras.
 Data Loading: Supports loading PCB images from files for analysis.
