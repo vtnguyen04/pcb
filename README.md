@@ -9,7 +9,8 @@ Break: Areas where the circuit trace has been interrupted or broken.
 Shortcut: Unintended connections between two or more circuit traces that should not be connected.
 Under etching: Incomplete etching process leaving unwanted parts of the metal layer.
 Over etching: Excessive etching that removes necessary parts of the circuit trace.
-![445380641_342489758621377_4969743518060766273_n](https://github.com/vtnguyen04/pcb/assets/64852371/a2dd336b-f367-4aca-8970-bb2ece0126c8)
+
+  ![445380641_342489758621377_4969743518060766273_n](https://github.com/vtnguyen04/pcb/assets/64852371/a2dd336b-f367-4aca-8970-bb2ece0126c8)
 
 ## Technology and Tools:
 
@@ -17,7 +18,7 @@ Image Processing: Utilizes algorithms to analyze images of PCBs and identify pot
 Machine Learning and Computer Vision: Implements deep learning models to classify and pinpoint specific types of faults on the boards.
 Graphical User Interface (GUI): Provides an intuitive interface for users to interact with the application, including options for capturing images, loading data, and managing inspection results.
 
-[anh](https://github.com/user-attachments/assets/9c758b15-0c78-4ee3-9df2-6bd836987931)
+  [anh](https://github.com/user-attachments/assets/9c758b15-0c78-4ee3-9df2-6bd836987931)
 
 
 
